@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'Lato Regular';
+  src: url(./assets/Lato-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Lato Black';
+  src: url(./assets/Lato-Black.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Lato Bold';
+  src: url(./assets/Lato-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Lato Light';
+  src: url(./assets/Lato-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Lato Thin';
+  src: url(./assets/Lato-Thin.ttf) format("truetype");
+}
+
+
+body {
+  font-family: 'Lato Regular', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
