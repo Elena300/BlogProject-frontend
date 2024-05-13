@@ -1,0 +1,31 @@
+.Card {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  border: 1px solid #000000;
+
+}
+.Card--header {
+background-color: rgb(0, 0, 0);
+border: 1px solid #000000;
+width: 50%;
+color:#D0FF4B;
+text-transform: capitalize;
+font-family: 'Lato Regular'
+}
+
+.Card--body {
+ background-color: #ffffff;
+}
+
+
+.image {
+  background-color: hwb(166 40% 7%);
+  
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}

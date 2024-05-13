@@ -9,6 +9,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 @font-face {
   font-family: 'Lato Regular';
   src: url(./assets/Lato-Regular.ttf) format("truetype");
@@ -37,4 +38,6 @@
 
 body {
   font-family: 'Lato Regular', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(191, 174, 206);
 }
+

@@ -12,6 +12,7 @@
   "dependencies": {
     "@vitejs/plugin-react": "^4.2.1",
     "flowbite-react": "^0.9.0",
+    "jotai": "^2.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.0"

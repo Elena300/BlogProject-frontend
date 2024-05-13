@@ -1,4 +1,4 @@
-const flowbite = require("flowbite-react/tailwind");
+import flowbite from "flowbite-react/tailwind";
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}", flowbite.content()],
@@ -10,6 +10,9 @@ export default {
         "lato-bold": ["Lato Bold"],
         "lato-light": ["Lato Light"],
         "lato-thin": ["Lato Thin"],
+      },
+      colors: {
+        "fluo-green": "#D0FF4B",
       },
     },
   },
