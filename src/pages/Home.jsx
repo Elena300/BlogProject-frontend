@@ -1,13 +1,19 @@
 import React from "react";
-import PostGroup from "../components/PostGroup";
+import PostCard from "../components/PostCard";
+
 
 function Home() {
   return (
     <>
-      <h1 className="font-lato-regular">Categories</h1>
-      <div className=" pl-6 bg-red-200 w-full grid grid-cols-4 ">
-        <PostGroup />
+      <div className=" w-100% h-100% bg-techno-black grid grid-cols-2 grid-flow-row auto-rows-min gap-x-24 gap-y-10 px-16 pt-10">
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
       </div>
+      
     </>
   );
 }

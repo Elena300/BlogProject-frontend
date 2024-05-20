@@ -35,9 +35,32 @@
   src: url(./assets/Lato-Thin.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: 'Forced Square';
+  src: url(./assets/fonts/Forced-square.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Work Sans Regular';
+  src: url(./assets/fonts/WorkSans-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Work Sans Bold';
+  src: url(./assets/fonts/WorkSans-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Space Grotesk Regular';
+  src: url(./assets/fonts/SpaceGrotesk-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Space Grotesk Light';
+  src: url(./assets/fonts/SpaceGrotesk-Light.ttf) format("truetype");
+}
+
 
 body {
   font-family: 'Lato Regular', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: rgb(191, 174, 206);
 }
-

@@ -1,0 +1,20 @@
+.user-frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #131313;
+  height: 100%;
+}
+
+.user-name {
+  font-family: 'Space Grotesk Light', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.user-react-icon {
+  color: #3CFFD0;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}

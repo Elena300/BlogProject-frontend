@@ -1,31 +1,137 @@
-.Card {
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  overflow: hidden;
-  transition: box-shadow 0.3s;
-  border: 1px solid #000000;
-
-}
-.Card--header {
-background-color: rgb(0, 0, 0);
-border: 1px solid #000000;
-width: 50%;
-color:#D0FF4B;
-text-transform: capitalize;
-font-family: 'Lato Regular'
+@font-face {
+  font-family: 'Work Sans Regular';
+  src: url(./assets/fonts/WorkSans-Regular.ttf) format("truetype");
 }
 
-.Card--body {
- background-color: #ffffff;
+@font-face {
+  font-family: 'Work Sans Bold';
+  src: url(./assets/fonts/WorkSans-Bold.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: 'Space Grotesk Regular';
+  src: url(./assets/fonts/SpaceGrotesk-Regular.ttf) format("truetype");
+}
 
-.image {
-  background-color: hwb(166 40% 7%);
-  
-  height: 200px;
-  overflow: hidden;
-  position: relative;
+@font-face {
+  font-family: 'Space Grotesk Light';
+  src: url(./assets/fonts/SpaceGrotesk-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Monserrat';
+  src: url(../assets/fonts/Montserrat-VariableFont_wght.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Lato Regular';
+  src: url(../assets/Lato-Regular.ttf) format("truetype");
+}
+
+.card {
+  background-color: #131313;
+  border: 1px solid rgba(255, 255, 255, 0.169);
+  border: drop-shadow(0px 4px 4px rgba(52, 52, 52, 0.728));
+ width: 100%;
+ color: #ffffff;
+ display: flex;
+ flex-direction: column;
+ padding-left: 1rem;
+ padding-right: 1rem;
+ border-left: 1px solid #3CFFD0;
+}
+
+.category {
+  background-color: #131313;
+}
+
+.category-text {
+text-transform: uppercase;
+font-family: 'Space Grotesk Light', sans-serif;
+font-size: 0.9rem;
+height: fit-content;
+width: fit-content;
+}
+
+.category-text:hover {
+  color: #3CFFD0;
+  text-decoration: underline #3CFFD0;
+}
+
+.card-body {
+padding-top: 0.5rem;
+display: flex;
+}
+
+.card-main-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 1.6rem;
+}
+.post-card-header {
+  font-family: 'Work Sans Bold';
+  line-height: 24px;
+  font-weight: 800;
+  font-size: 1.3rem;
+  padding-top: 0.9rem;
+}
+
+.post-card-header:hover {
+  text-decoration: underline #3CFFD0;
+}
+
+.info {
+  display: flex;
+  align-items: left;
+  text-transform: uppercase;
+  font-family: 'Space Grotesk Light', sans-serif;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+}
+
+p {
+  padding-right: 0.5rem;
+}
+
+.post-author:hover {
+  text-decoration: underline solid #3CFFD0;
+  font-family: 'Space Grotesk Regular', sans-serif;
+}
+
+.image-container {
+  height: 100%;
+  width: 40%;
+  padding-top: 0.2rem;
+}
+
+.post-image {
+  height: 100%;
+  object-fit: cover;
+  justify-self:
+}
+
+.post-description {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-family: 'Work Sans Regular';
+  font-size: 0.8rem;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.781);
+}
+
+.read-button {
+  font-family: 'Space Grotesk Light', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  width: fit-content;
+  color: #3CFFD0;
+  margin-bottom: 0.5rem;
+}
+
+.read-button:hover {
+  border-bottom: 1px solid #3CFFD0;
+  font-family: 'Space Grotesk Regular', sans-serif;
 }

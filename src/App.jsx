@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import PostItem from "./pages/PostItem";
-import About from "./pages/About";
+import Post from "./pages/Post";
 import Overlay from "./components/Overlay";
-//import axios from "axios";
+import Bloggers from "./pages/Bloggers";
+
+
 
 function App() {
   //axios.defaults.baseURL = "http://localhost:3000";
@@ -12,19 +13,17 @@ function App() {
       
   return (
     <>
-        <Overlay />
-      <div className=" max-w-full flex flex-col">
-        <div>
+      <Overlay />
+        <div className=" h-40 bg-techno-black">
           <Navbar />
         </div>
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/post" element={<PostItem />} />
+            <Route path="/people" element={<Bloggers />} />
+            <Route path="/post" element={<Post />} />
           </Routes>
         </div>
-      </div>
     </>
   );
 }

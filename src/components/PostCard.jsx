@@ -1,30 +1,43 @@
-import "./PostCard.css"
+import "./PostCard.css";
+import iot from "../assets/images/Iot-1.jpg";
 
 function PostCard() {
-  
   return (
-    <div className="Card">
-      <div className="Card--body">
-        <div className="Card--header">category</div>
-        <div className="image">
-          <img src="https://via.placeholder.com/150" alt="Post" className=" w-10/12 " />
+    <div className="card">
+      <div className="card-body">
+        <div className="card-main-block">
+          <div className="category">
+            <div className="category-text">category /</div>
+          </div>
+
+          <div className="card-title-block">
+            <div className="post-card-header">
+              iMessage had an outage, but now it’s back
+            </div>
+            <div className="info">
+              <p className=" post-author text-fluo-green">john johnson</p>
+              <p className=" text-slate-400">may 16, 2024</p>
+              <p className=" text-slate-400">| comment</p>
+            </div>
+          </div>
         </div>
-        <h2>Post Title</h2>
-        <p>Post date</p>
-        <p>Post description</p>
-      </div>
-      <div className="Card--footer">
-        <h3>author</h3>
-        <div className="Card--footer--actions">
-          <button>Like</button>
-          <button>Comment</button>
-          <button>Share</button>
-          <button>add to fav</button>
-          <div>comment</div>
+
+        <div className="image-container">
+          <img src={iot} className="post-image" alt="iot logo" />
         </div>
       </div>
+      <div className="post-description">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim
+        </p>
+      </div>
+      <button className="read-button">
+        read post
+      </button>
     </div>
   );
 }
 
-export default PostCard
+export default PostCard;

@@ -1,11 +1,22 @@
 
+import { BiUser } from "react-icons/bi";
+import { IconContext } from "react-icons";
+import "./User.css";
+
 function User(props) {
-    console.log(props.name)
+  console.log(props.username);
   return (
-    <div>
-      User<br></br>{props.initials}{props.name}
+    <div className="user-frame">
+    <IconContext.Provider value={{ className: "user-react-icon" }}>
+      <div>
+        <BiUser />
+      </div>
+    </IconContext.Provider>
+      <div className="user-name">
+        {props.username}
+      </div>
     </div>
   );
 }
 
-export default User
+export default User;

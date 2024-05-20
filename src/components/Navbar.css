@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'Felix';
+    src: url(../src/assets/fonts/Felixti.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'Space Grotesk Medium';
+    src: url(../assets/fonts/SpaceGrotesk-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Work Sans Regular';
+  src: url(./assets/fonts/WorkSans-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Work Sans Bold';
+  src: url(./assets/fonts/WorkSans-Bold.ttf) format("truetype");
+}
+
+
+.navbar-frame {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #131313;
+    padding: 0 4rem;
+}
+
+.logo-container {
+    line-height: 3.5rem;
+    border: 2ps solid #3CFFD0;
+}
+
+.logo {
+    font-family: 'Space Grotesk Medium', sans-serif;
+    font-weight: 600;
+    font-size: 3.5rem;
+    color: #3CFFD0;
+    text-transform: uppercase;
+}
+
+.nav-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 2rem;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 1rem;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+.menu-item {
+    font-family: 'Lato Light', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    color: #3CFFD0;
+}
+
+.menu-item > span {
+    margin-left: 0.5rem;
+}
+.buttons-container {
+    display: flex;
+    align-items: flex-end;
+}
+
+.signin-button {
+    font-family: 'Work Sans Black', sans-serif;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-right: 2rem;
+    color: #3CFFD0;
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid #3CFFD0;
+}
+
+.signin-button:hover {
+    background-color: #3CFFD0;
+    color: #131313;
+}
+
+.user-container {
+    color: #3CFFD0;
+}

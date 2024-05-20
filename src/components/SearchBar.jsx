@@ -4,7 +4,7 @@ import { FiSearch } from "react-icons/fi";
 
 function SearchBar() {
   return (
-    <div className="max-w-md">
+    <div className="max-w-md w-50">
       <div className="mb-2 block">
       </div>
       <TextInput
