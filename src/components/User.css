@@ -11,10 +11,21 @@
   font-family: 'Space Grotesk Light', sans-serif;
   font-size: 0.9rem;
   text-transform: uppercase;
+  color: #3CFFD0;
 }
+
 
 .user-react-icon {
   color: #3CFFD0;
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
+
+.user-frame:hover .user-name {
+  font-family: 'Space Grotesk Medium', sans-serif;
+}
+
+.user-frame:hover .user-react-icon {
+  font-size: 2.2rem;
+}
+

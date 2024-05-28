@@ -3,6 +3,7 @@ import SignInForm from "./SignInForm";
 import { createPortal } from "react-dom";
 import { useAtomValue } from "jotai";
 import { modalAtom } from "../State.jsx";
+import DropdownUser from "./DropdownUser.jsx";
 
 const MountElement = document.getElementById("overlay");
 const myStyle = {
@@ -19,13 +20,15 @@ const myStyle = {
 
 function Overlay() {
   const modal = useAtomValue(modalAtom);
-  return modal ? createPortal(
+  
+  return modal === true 
+    ? createPortal(
     <div style={myStyle}>
-      <SignInForm />
+      <SignInForm /> 
     </div>,
-    MountElement
-  )
-   : null;
+      MountElement)
+    : null;  
+  
 }
 
 

@@ -1,31 +1,54 @@
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import { createBrowserRouter, RouterProvider  } from "react-router-dom";
+import Overlay from "./components/Overlay"
+import RootLayout from "./pages/RootLayout"
+import ErrorPage from "./ErrorPage";
 import Home from "./pages/Home";
-import Post from "./pages/Post";
-import Overlay from "./components/Overlay";
-import Bloggers from "./pages/Bloggers";
+import PostPage from "./pages/PostPage";
+import NewPostPage from "./pages/NewPostPage"
+import Blogger from "./pages/Bloggers";
+import UserArea from "./pages/UserArea";
+
+const Router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, 
+        element: <Home /> },
+      {
+        path: "post/:id",
+        element: <PostPage />,
+      },
+      {
+        path: "blogger/:id",
+        element: <Blogger />,
+      },
+    ],
+  },
+  {
+    path: "/user/:id",
+    element: <UserArea />,
+    children: [
+      {
+        path: "new post",
+        element: <NewPostPage />,
+      },
+    ],
+  },
+]);
 
 
 
 function App() {
-  //axios.defaults.baseURL = "http://localhost:3000";
-  //axios.defaults.withCredentials = true;
-      
+  
   return (
     <>
       <Overlay />
-        <div className=" h-40 bg-techno-black">
-          <Navbar />
-        </div>
-        <div>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/people" element={<Bloggers />} />
-            <Route path="/post" element={<Post />} />
-          </Routes>
-        </div>
+      <RouterProvider router = {Router} />
     </>
   );
 }
 
 export default App;
+

@@ -1,11 +1,11 @@
-import React from 'react'
 
-function About() {
+
+export default function Blogger() {
   return (
     <>
-      <h1>About</h1>
+      <div>about blogger</div>
+      <div>all posts</div>
     </>
   );
 }
 
-export default About

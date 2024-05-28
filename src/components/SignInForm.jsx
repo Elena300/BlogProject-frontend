@@ -17,7 +17,7 @@ function SignInForm() {
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    setIsOpen(false);
+    setIsOpen("close");
     if (formType === "signin") {
      await signIn(email, password);
     }

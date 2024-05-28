@@ -1,5 +1,6 @@
 import "./PostCard.css";
 import iot from "../assets/images/Iot-1.jpg";
+import { Link } from "react-router-dom";
 
 function PostCard() {
   return (
@@ -11,7 +12,7 @@ function PostCard() {
           </div>
 
           <div className="card-title-block">
-            <div className="post-card-header">
+            <div className="post-card-header cursor-pointer">
               iMessage had an outage, but now it’s back
             </div>
             <div className="info">
@@ -33,9 +34,9 @@ function PostCard() {
           minim
         </p>
       </div>
-      <button className="read-button">
-        read post
-      </button>
+      <div className="read-button cursor-pointer">
+        <Link to={`post/1`}>read post</Link>
+      </div>
     </div>
   );
 }
