@@ -12,11 +12,11 @@ function Navbar() {
   const [userName, setUsername] = useAtom(userNameAtom);
   const [loggedUserId, setLoggedUserId] = useAtom(userIdAtom);
   const [loggedUser, setLoggedUser] = useAtom(isLoggedInAtom);
-  
+
   const checkLogIn = () => {
     const isLoggedIn = Cookies.get("isLoggedIn");
     const username = Cookies.get("username");
-    const userId = Cookies.get("userId")
+    const userId = Cookies.get("userId");
     if (isLoggedIn === "true") {
       setLoggedUser(true);
       setUsername(username);
@@ -25,7 +25,7 @@ function Navbar() {
       setLoggedUser(false);
     }
   };
-  
+
   useLayoutEffect(() => {
     checkLogIn(); // Call checkLogIn when the component mounts
   }, []); // Empty dependency array means this effect runs once on mount
@@ -39,13 +39,16 @@ function Navbar() {
         if (confirmLogOut.message === "Logout successful") {
           setUsername("guest");
           setLoggedUserId("");
+          setLoggedUser(false)
+          Cookies.remove("username"); 
+          Cookies.remove("userId");
+          Cookies.remove("isLoggedIn");
         }
       } catch (error) {
         console.log(error);
       }
     }
   };
-
 
   return (
     <>

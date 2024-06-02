@@ -7,6 +7,7 @@ import PostPage from "./pages/PostPage";
 import NewPostPage from "./pages/NewPostPage"
 import Blogger from "./pages/Bloggers";
 import UserPage from "./pages/UserPage";
+import UserPosts from "./pages/UserPosts";
 import { postDataLoader, postLoader  } from "./Loaders";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,15 +19,12 @@ const Router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, 
-        element: <Home />,
-        loader: postDataLoader,
-      },
+      { index: true, element: <Home />, loader: postDataLoader },
       {
         path: "post/:postId",
         element: <PostPage />,
         loader: postLoader,
-        },
+      },
       {
         path: "blogger/:id",
         element: <Blogger />,
@@ -35,11 +33,15 @@ const Router = createBrowserRouter([
   },
   {
     path: "/user/:id",
-    element: <UserPage/>,
+    element: <UserPage />,
     children: [
       {
-        path: "new post",
+        path: "newpost",
         element: <NewPostPage />,
+      },
+      {
+        path: "all/:userId",
+        element: <UserPosts />,
       },
     ],
   },

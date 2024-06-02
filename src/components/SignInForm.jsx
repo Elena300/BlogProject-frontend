@@ -35,7 +35,6 @@ function SignInForm() {
     setIsOpen("close");
 }
 
-  
   return (
     <div className="modal-conatiner ">
       <button
