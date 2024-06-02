@@ -10,7 +10,7 @@ export default function PostPage() {
         <div className=" post-area ">
           <div className=" post-body ">
             <h2>{postContent.Post.post_title}</h2>
-            <div>Date</div>
+            <div>{postContent.Post.created_at}</div>
             <div>Text</div>
           </div>
           <div className=" actions-area ">

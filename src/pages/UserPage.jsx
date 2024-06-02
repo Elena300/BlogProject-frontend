@@ -13,7 +13,7 @@ export default function UserArea() {
             </div>
           </Link>
         </div>
-        <div className>side menu</div>
+        <div>side menu</div>
         <div>UserArea</div>
    
       

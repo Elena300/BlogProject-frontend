@@ -4,17 +4,17 @@ import { useState } from "react";
 import "./User.css";
 import { loggedUser } from "../services/authService"
 import { toast } from "react-toastify";
-import { useAtom, useAtomValue } from "jotai";
-import { userIdAtom, isLoggedInAtom, userNameAtom } from "../State";
+import { useAtom} from "jotai";
+import { userIdAtom, isLoggedInAtom } from "../State";
 import { Link } from 'react-router-dom';
 
-function User() {
+function User(props) {
   console.log("User component rendered");
   const [dropdown, setDropdown] = useState(false);
   const [userId, setUserId] = useAtom(userIdAtom)
   const [loggedIn, setLoggedIn] = useAtom(isLoggedInAtom);
-  const userName = useAtomValue(userNameAtom)
-
+  
+  
   function handleDropdown() {
     setDropdown(!dropdown);
     if (dropdown === false) {console.log("closed")} else {console.log("open")}
@@ -43,7 +43,7 @@ function User() {
             <BiUser />
           </div>
         </IconContext.Provider>
-        <div className="user-name">{userName}</div>
+        <div className="user-name">{props.loggedUserName}</div>
       </button>
 
       <div

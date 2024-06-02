@@ -18,7 +18,7 @@ function SignInForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const setUserName = useSetAtom(userNameAtom);
+  const setLoggedUserName = useSetAtom(userNameAtom);
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
@@ -26,8 +26,10 @@ function SignInForm() {
         {
           const loggedUser = await signIn(email, password);
           console.log(loggedUser);
-          setUserName(loggedUser.username);
+          setLoggedUserName(loggedUser.username);
           Cookies.set("isLoggedIn", "true", { expires: 7 });
+          Cookies.set("username", loggedUser.username, { expires: 7 }); // Set username in cookies
+          Cookies.set("userId", loggedUser.id, { expires: 7 });
         }
     else {await signUp(username, email, password);}
     setIsOpen("close");

@@ -10,13 +10,17 @@ import { useLayoutEffect } from "react";
 function Navbar() {
   const setIsOpen = useSetAtom(modalAtom);
   const [userName, setUsername] = useAtom(userNameAtom);
-  const setUserId = useSetAtom(userIdAtom);
+  const [loggedUserId, setLoggedUserId] = useAtom(userIdAtom);
   const [loggedUser, setLoggedUser] = useAtom(isLoggedInAtom);
   
   const checkLogIn = () => {
     const isLoggedIn = Cookies.get("isLoggedIn");
+    const username = Cookies.get("username");
+    const userId = Cookies.get("userId")
     if (isLoggedIn === "true") {
       setLoggedUser(true);
+      setUsername(username);
+      setLoggedUserId(userId);
     } else {
       setLoggedUser(false);
     }
@@ -27,14 +31,14 @@ function Navbar() {
   }, []); // Empty dependency array means this effect runs once on mount
 
   const handleClick = async () => {
-    if (userName === "guest") {
+    if (loggedUser === false) {
       setIsOpen(true);
     } else {
       try {
         const confirmLogOut = await LogOut();
         if (confirmLogOut.message === "Logout successful") {
           setUsername("guest");
-          setUserId("");
+          setLoggedUserId("");
         }
       } catch (error) {
         console.log(error);
@@ -77,7 +81,7 @@ function Navbar() {
             <button className="signin-button" onClick={handleClick}>
               {loggedUser === false ? "sign in" : "sign out"}
             </button>
-              <User username={userName} />
+            <User loggedUserName={userName} userId={loggedUserId} />
           </div>
         </div>
       </div>
