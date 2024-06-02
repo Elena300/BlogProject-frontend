@@ -5,13 +5,14 @@ import { isLoggedInAtom, modalAtom, userIdAtom, userNameAtom } from "../State";
 import "./Navbar.css";
 import { LogOut } from "../services/authService";
 import Cookies from "js-cookie";
-import { useLayoutEffect } from "react";
+import { useEffect} from "react";
 
 function Navbar() {
   const setIsOpen = useSetAtom(modalAtom);
   const [userName, setUsername] = useAtom(userNameAtom);
   const [loggedUserId, setLoggedUserId] = useAtom(userIdAtom);
   const [loggedUser, setLoggedUser] = useAtom(isLoggedInAtom);
+  
   
   const checkLogIn = () => {
     const isLoggedIn = Cookies.get("isLoggedIn");
@@ -26,9 +27,9 @@ function Navbar() {
     }
   };
   
-  useLayoutEffect(() => {
-    checkLogIn(); // Call checkLogIn when the component mounts
-  }, []); // Empty dependency array means this effect runs once on mount
+  useEffect(() => {
+    checkLogIn(); 
+  }, [userName, loggedUser, loggedUserId]);
 
   const handleClick = async () => {
     if (loggedUser === false) {
@@ -39,7 +40,11 @@ function Navbar() {
         if (confirmLogOut.message === "Logout successful") {
           setUsername("guest");
           setLoggedUserId("");
-        }
+          setLoggedUser(false);
+          Cookies.remove("isLoggedIn");
+          Cookies.remove("username");}
+          Cookies.remove("userId");
+
       } catch (error) {
         console.log(error);
       }
