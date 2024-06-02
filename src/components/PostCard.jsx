@@ -2,7 +2,7 @@ import "./PostCard.css";
 import iot from "../assets/images/Iot-1.jpg";
 import { Link } from "react-router-dom";
 
-function PostCard() {
+function PostCard({ postInfo }) {
   return (
     <div className="card">
       <div className="card-body">
@@ -13,10 +13,12 @@ function PostCard() {
 
           <div className="card-title-block">
             <div className="post-card-header cursor-pointer">
-              iMessage had an outage, but now it’s back
+              {postInfo.Post.post_title}
             </div>
             <div className="info">
-              <p className=" post-author text-fluo-green">john johnson</p>
+              <p className=" post-author text-fluo-green">
+                {postInfo.Username}
+              </p>
               <p className=" text-slate-400">may 16, 2024</p>
               <p className=" text-slate-400">| comment</p>
             </div>
@@ -28,14 +30,10 @@ function PostCard() {
         </div>
       </div>
       <div className="post-description">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim
-        </p>
+        <p>{postInfo.Post.post_description}</p>
       </div>
       <div className="read-button cursor-pointer">
-        <Link to={`post/1`}>read post</Link>
+        <Link to={`post/${postInfo.Post.post_id}`}>read post</Link>
       </div>
     </div>
   );
