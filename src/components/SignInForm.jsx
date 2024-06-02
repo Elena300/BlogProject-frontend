@@ -1,31 +1,41 @@
-import React from "react";
-import { useAtomValue, useSetAtom } from "jotai";
-import { modalAtom, formTypeAtom } from "../State";
+
+import { useAtom, useSetAtom } from "jotai";
+import {
+  modalAtom,
+  formTypeAtom,
+  userNameAtom,
+} from "../State";
 import { useState } from "react";
 import "./SignInForm.css";
 import { signUp, signIn } from "../services/authService.js";
 import { GrClose } from "react-icons/gr";
-
+import Cookies from "js-cookie";
 
 function SignInForm() {
-  const setFormType = useSetAtom(formTypeAtom);
-  const formType = useAtomValue(formTypeAtom);
+  const [formType, setFormType] = useAtom(formTypeAtom);
+
   const setIsOpen = useSetAtom(modalAtom);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const setLoggedUserName = useSetAtom(userNameAtom);
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
+    if (formType === "signin") 
+        {
+          const loggedUser = await signIn(email, password);
+          console.log(loggedUser);
+          setLoggedUserName(loggedUser.username);
+          Cookies.set("isLoggedIn", "true", { expires: 7 });
+          Cookies.set("username", loggedUser.username, { expires: 7 }); // Set username in cookies
+          Cookies.set("userId", loggedUser.id, { expires: 7 });
+        }
+    else {await signUp(username, email, password);}
     setIsOpen("close");
-    if (formType === "signin") {
-     await signIn(email, password);
-    }
-    await signUp (username, email, password);
-  };
+}
 
-  console.log(username);
-
+  
   return (
     <div className="modal-conatiner ">
       <button
@@ -48,7 +58,7 @@ function SignInForm() {
             onChange={(e) => {
               setUsername(e.target.value);
             }}
-             />
+          />
         )}
         <input
           type="text"
@@ -78,7 +88,7 @@ function SignInForm() {
           )}
           {formType === "signin" && (
             <div>
-              <p>Don't have an account?</p>
+              <p>Do not have an account?</p>
               <button onClick={() => setFormType("signup")}>
                 Sign Up here
               </button>

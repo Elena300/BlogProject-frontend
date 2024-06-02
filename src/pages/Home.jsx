@@ -1,21 +1,24 @@
 
 import PostCard from "../components/PostCard";
+import { useLoaderData } from 'react-router-dom'
 
-
-function Home() {
+export default function Home() {
+  const allPostsInfo = useLoaderData()
+  
   return (
     <>
       <div className=" w-100% h-100% bg-techno-black grid grid-cols-2 grid-flow-row auto-rows-min gap-x-24 gap-y-10 px-16 pt-10">
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
+        {allPostsInfo.map((postInfo) => (
+          <PostCard key={postInfo.Post.post_id} postInfo={postInfo} />
+        ))}
       </div>
-      
     </>
   );
 }
 
-export default Home;
+
+
+
+
+
+

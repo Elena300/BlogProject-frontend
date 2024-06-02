@@ -3,7 +3,6 @@ import SignInForm from "./SignInForm";
 import { createPortal } from "react-dom";
 import { useAtomValue } from "jotai";
 import { modalAtom } from "../State.jsx";
-import DropdownUser from "./DropdownUser.jsx";
 
 const MountElement = document.getElementById("overlay");
 const myStyle = {

@@ -1,18 +1,52 @@
 import { Link } from "react-router-dom";
 import User from "./User";
-import { useSetAtom } from "jotai";
-import { modalAtom } from "../State"
+import { useSetAtom, useAtom } from "jotai";
+import { isLoggedInAtom, modalAtom, userIdAtom, userNameAtom } from "../State";
 import "./Navbar.css";
+import { LogOut } from "../services/authService";
+import Cookies from "js-cookie";
+import { useLayoutEffect } from "react";
 
 function Navbar() {
   const setIsOpen = useSetAtom(modalAtom);
-
-  const userName = () => {
-    if (localStorage.data) {
-      return localStorage.getItem("username");
+  const [userName, setUsername] = useAtom(userNameAtom);
+  const [loggedUserId, setLoggedUserId] = useAtom(userIdAtom);
+  const [loggedUser, setLoggedUser] = useAtom(isLoggedInAtom);
+  
+  const checkLogIn = () => {
+    const isLoggedIn = Cookies.get("isLoggedIn");
+    const username = Cookies.get("username");
+    const userId = Cookies.get("userId")
+    if (isLoggedIn === "true") {
+      setLoggedUser(true);
+      setUsername(username);
+      setLoggedUserId(userId);
+    } else {
+      setLoggedUser(false);
     }
-    return "Guest";
   };
+  
+  useLayoutEffect(() => {
+    checkLogIn(); // Call checkLogIn when the component mounts
+  }, []); // Empty dependency array means this effect runs once on mount
+
+  const handleClick = async () => {
+    if (loggedUser === false) {
+      setIsOpen(true);
+    } else {
+      try {
+        const confirmLogOut = await LogOut();
+        if (confirmLogOut.message === "Logout successful") {
+          setUsername("guest");
+          setLoggedUserId("");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+
   return (
     <>
       <div className="navbar-frame">
@@ -44,17 +78,10 @@ function Navbar() {
           </div>
 
           <div className="buttons-container">
-            <button
-              className="signin-button"
-              onClick={() => {
-                setIsOpen(true);
-              }}
-            >
-              sign in
+            <button className="signin-button" onClick={handleClick}>
+              {loggedUser === false ? "sign in" : "sign out"}
             </button>
-
-              <User username={userName()} />
-
+            <User loggedUserName={userName} userId={loggedUserId} />
           </div>
         </div>
       </div>
