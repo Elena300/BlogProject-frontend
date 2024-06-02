@@ -1,5 +1,4 @@
 import "./PostCard.css";
-import iot from "../assets/images/Iot-1.jpg";
 import { Link } from "react-router-dom";
 
 function PostCard({ postInfo }) {
@@ -26,7 +25,7 @@ function PostCard({ postInfo }) {
         </div>
 
         <div className="image-container">
-          <img src={iot} className="post-image" alt="iot logo" />
+          <img src={postInfo.Post.image_url} className="post-image" alt="iot logo" />
         </div>
       </div>
       <div className="post-description">

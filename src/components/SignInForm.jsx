@@ -10,6 +10,7 @@ import "./SignInForm.css";
 import { signUp, signIn } from "../services/authService.js";
 import { GrClose } from "react-icons/gr";
 import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 function SignInForm() {
   const [formType, setFormType] = useAtom(formTypeAtom);
@@ -30,8 +31,12 @@ function SignInForm() {
           Cookies.set("isLoggedIn", "true", { expires: 7 });
           Cookies.set("username", loggedUser.username, { expires: 7 }); // Set username in cookies
           Cookies.set("userId", loggedUser.id, { expires: 7 });
+          toast.success("Log in successful");
         }
-    else {await signUp(username, email, password);}
+    else {
+      await signUp(username, email, password);
+      toast.success("Sign up successful");
+    }
     setIsOpen("close");
 }
 

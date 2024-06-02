@@ -26,6 +26,7 @@ export async function signUp(username, email, password) {
      const hasAllKeys = Object.key(data).every(key => requiredKey.includes(key))
      hasAllKeys === true ? toast.info("You are signed up") : toast.info ("Try again")
       }
+      toast.success("Sign up successful")
   } catch (error) { 
     console.log(error)
     }
@@ -60,6 +61,8 @@ export async function signIn(email, password) {
       {const userData = await loggedUser();
         return userData
       }
+      
+
   } catch (error) {
     if (error.json) {
       error.json().then((errorMessage) => {
