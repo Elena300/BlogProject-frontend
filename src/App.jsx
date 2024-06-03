@@ -1,16 +1,16 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Overlay from "./components/Overlay"
-import RootLayout from "./pages/RootLayout"
+import Overlay from "./components/Overlay";
+import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./ErrorPage";
 import Home from "./pages/Home";
 import PostPage from "./pages/PostPage";
-import NewPostPage from "./pages/NewPostPage"
+import NewPostPage from "./pages/NewPostPage";
 import Blogger from "./pages/Bloggers";
 import UserPage from "./pages/UserPage";
-import { postDataLoader, postLoader  } from "./Loaders";
+import UserPosts from "./pages/UserPosts";
+import { postDataLoader, postLoader } from "./Loaders";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 
 const Router = createBrowserRouter([
   {
@@ -18,15 +18,12 @@ const Router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, 
-        element: <Home />,
-        loader: postDataLoader,
-      },
+      { index: true, element: <Home />, loader: postDataLoader },
       {
         path: "post/:postId",
         element: <PostPage />,
         loader: postLoader,
-        },
+      },
       {
         path: "blogger/:id",
         element: <Blogger />,
@@ -35,28 +32,32 @@ const Router = createBrowserRouter([
   },
   {
     path: "/user/:id",
-    element: <UserPage/>,
+    element: <UserPage />,
     children: [
       {
-        path: "new post",
+        path: "", // Set an empty path for the index route
+        element: <NewPostPage />, // Render UserPosts as the default content
+      },
+      {
+        path: "newpost",
         element: <NewPostPage />,
+      },
+      {
+        path: "all/:userId",
+        element: <UserPosts />,
       },
     ],
   },
 ]);
 
-
-
 function App() {
-  
   return (
     <>
       <ToastContainer />
       <Overlay />
-      <RouterProvider router = {Router} />
+      <RouterProvider router={Router} />
     </>
   );
 }
 
 export default App;
-
