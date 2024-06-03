@@ -28,7 +28,7 @@ function Navbar() {
   };
   
   useEffect(() => {
-    checkLogIn(); 
+    checkLogIn();
   }, [userName, loggedUser, loggedUserId]);
 
   const handleClick = async () => {
