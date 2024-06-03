@@ -42,7 +42,7 @@ function SignInForm() {
 
   
   return (
-    <div className="modal-conatiner ">
+    <div className="modal-conatiner border border-fluo-green ">
       <button
         className="close-btn text-fluo-green absolute top-0 right-0 p-2 border-2 border-fluo-green"
         onClick={() => setIsOpen(false)}
@@ -79,14 +79,17 @@ function SignInForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="block bg-blue-500 text-white w-full rounded-sm py-2">
+        <button className="block text-fluo-green w-full py-2  bg-techno-black font-space-grotesk-light uppercase text-base border border-solid border-fluo-green hover:bg-fluo-green hover:text-techno-black cursor-pointer">
           {formType === "signup" ? "Sign Up" : "Sign In"}
         </button>
         <div className="text-center mt-2  text-fluo-green">
           {formType === "signup" && (
             <div>
               <p>Already have an account?</p>
-              <button onClick={() => setFormType("signin")}>
+              <button
+                className="hover:decoration-solid hover:underline"
+                onClick={() => setFormType("signin")}
+              >
                 Sign In here
               </button>
             </div>
@@ -94,7 +97,10 @@ function SignInForm() {
           {formType === "signin" && (
             <div>
               <p>Do not have an account?</p>
-              <button onClick={() => setFormType("signup")}>
+              <button
+                className="hover:decoration-solid hover:underline"
+                onClick={() => setFormType("signup")}
+              >
                 Sign Up here
               </button>
             </div>

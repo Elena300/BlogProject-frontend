@@ -7,7 +7,7 @@ function RootLayout() {
 
   return (
     <>
-      <div className=" h-40 bg-techno-black">
+      <div className="h-40 bg-techno-black">
         <Navbar />
       </div>
       <main>
