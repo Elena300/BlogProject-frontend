@@ -74,7 +74,7 @@ export default function UserArea() {
             />
             <button
               type="submit"
-              className="c"
+              className="text-fluo-green bg-techno-black font-space-grotesk-light uppercase text-base py-1 px-4 border border-solid border-fluo-green hover:bg-fluo-green hover:text-techno-black cursor-pointer"
             >
               Create Blog
             </button>
